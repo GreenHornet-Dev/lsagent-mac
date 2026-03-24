@@ -66,6 +66,70 @@ sudo ./force-rescan-lsagent.sh
 
 ---
 
+## 🍎 Run on Mac — Copy & Paste Commands
+
+Open **Terminal** on your Mac and paste any of these blocks.
+
+### First-Time Setup (run once)
+
+```bash
+# Clone repo and make all scripts executable
+git clone https://github.com/GreenHornet-Dev/lsagent-mac.git
+cd lsagent-mac && chmod +x *.sh
+```
+
+### One-Liner: Force Rescan LsAgent
+
+```bash
+cd ~/lsagent-mac && sudo ./force-rescan-lsagent.sh
+```
+> Stops agent → backs up config → lets you edit settings → clears cache → restarts agent
+
+### One-Liner: Check 3rd-Party App Versions
+
+```bash
+cd ~/lsagent-mac && ./check-app-versions.sh
+```
+> Scans all installed apps → checks Homebrew Cask API for latest → color-coded report + JSON output
+
+### One-Liner: Remote Exec Template (local test)
+
+```bash
+cd ~/lsagent-mac && sudo ./remote-exec-template.sh
+```
+> Runs the GoTo Resolve template locally for testing before deploying remotely
+
+### Run Without Cloning (curl + bash)
+
+If you just need the version checker on a Mac without cloning the full repo:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/GreenHornet-Dev/lsagent-mac/main/check-app-versions.sh | bash
+```
+
+Or download first, inspect, then run (recommended):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/GreenHornet-Dev/lsagent-mac/main/check-app-versions.sh -o /tmp/check-app-versions.sh
+cat /tmp/check-app-versions.sh    # review the script
+chmod +x /tmp/check-app-versions.sh && /tmp/check-app-versions.sh
+```
+
+For the force-rescan tool (requires sudo):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/GreenHornet-Dev/lsagent-mac/main/force-rescan-lsagent.sh -o /tmp/force-rescan-lsagent.sh
+chmod +x /tmp/force-rescan-lsagent.sh && sudo /tmp/force-rescan-lsagent.sh
+```
+
+### Update to Latest Version
+
+```bash
+cd ~/lsagent-mac && git pull origin main
+```
+
+---
+
 ## ✅ Prerequisites
 
 - 🍎 **macOS** Monterey 12+ / Ventura 13+ / Sonoma 14+ / Sequoia 15+
